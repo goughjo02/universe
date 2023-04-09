@@ -55,7 +55,7 @@ jobs:
         run: pnpm install
 
       - name: Run tests
-        run: pnpm nx affected --target=test --base=${{ env.BASE }} --head=${{ env.HEAD }} --parallel --maxParallel=4
+        run: pnpm nx affected --targets=test --base=${{ env.BASE }} --head=${{ env.HEAD }} --parallel --maxParallel=4
 
       - name: Run lint
-        run: pnpm nx affected target=lint --base=${{ env.BASE }} --head=${{ env.HEAD }} --parallel --maxParallel=4
+        run: pnpm nx affected targets=lint --base=${{ env.BASE }} --head=${{ env.HEAD }} --parallel --maxParallel=4
