@@ -13,8 +13,8 @@ on:
 
 #  set env variables
 env:
-  BASE: ${{ github.event.before }}
-  HEAD: ${{ github.event.after }}
+  BASE: origin/main
+  HEAD: HEAD
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -55,7 +55,7 @@ jobs:
         run: pnpm install
 
       - name: Run tests
-        run: pnpm nx affected:test --base=${{ env.BASE }} --head=${{ env.HEAD }} --parallel --maxParallel=4
+        run: pnpm nx affected --target=test --base=${{ env.BASE }} --head=${{ env.HEAD }} --parallel --maxParallel=4
 
       - name: Run lint
-        run: pnpm nx affected:lint --base=${{ env.BASE }} --head=${{ env.HEAD }} --parallel --maxParallel=4
+        run: pnpm nx affected target=lint --base=${{ env.BASE }} --head=${{ env.HEAD }} --parallel --maxParallel=4
