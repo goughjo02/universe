@@ -1,3 +1,4 @@
 {
-  "babelrcRoots": ["*"]
+  "babelrcRoots": ["*"],
+  "presets": ["@rnx-kit/babel-preset-metro-react-native"]
 }
